@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using Scte35Parser.Extensions;
 using Scte35Parser.Splice.SpliceCommands;
 using Scte35Parser.Splice.SpliceCommands.SpliceInsert;
@@ -83,6 +84,11 @@ namespace Scte35Parser.Splice
                 sliceDescriptor.Read(stce35BitArray);
                 SliceDescriptors.Add(sliceDescriptor);
             }
+        }
+
+        public string ToJson()
+        {
+            return JsonSerializer.Serialize(this);
         }
     }
 }
